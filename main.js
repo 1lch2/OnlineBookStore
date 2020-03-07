@@ -26,7 +26,14 @@ function loadElements() {
         },
         function(xhr) { console.error(xhr); }
     );
+
     //TODO: Insert json objects into <table>.
+    for (obj in bookList){
+        //TODO: failed insert.
+        var element = '<p>test</p>'
+        var tablerow = document.createTextNode(element);
+        document.getElementsByTagName('tbody').appendChild(tablerow);
+    }
 }
 
 window.onload = loadElements();

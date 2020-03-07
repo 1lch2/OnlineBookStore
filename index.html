@@ -3,7 +3,7 @@
 <html>
 
 <head>
-    <title>Xinhua Online Book Store</title>
+    <title>A2Z Online Book Store</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <link rel="shortcut icon" href="./images/favicon.png" />
     <script src="./main.js"></script>
@@ -11,52 +11,62 @@
 
 <body>
     <div id="headline">
-        <h1>Welcome to Xinhua Online Book Store</h1>
+        <h1>Welcome to A2Z Online Book Store</h1>
     </div>
 
     <div id="container">
-        <div class="row">
-            <form method="GET" action="">
-                <input type="search" placeholder="Type a book title to search." id="searchbox">
-                <select>
-                    <option value="all" selected="selected">All</option>
-                    <option value="art">Art</option>
-                    <option value="science">Science</option>
-                    <option value="history">History</option>
-                    <option value="fiction">Fiction</option>
-                    <option value="health">Health</option>
-                    <option value="action">Action&Adventure</option>
-                </select>
-                <input type="submit" value="Search" id="searchbtn">
-            </form>
-        </div>
-        <hr/>
-        <div class="row">
-            <!-- TODO: 改用 table 显示图片 -->
-            <figure class="item">
-                <!-- Book shelf -->
-                <img src="./images/01.jpg" class="book">
-                <figcaption>test image 1</figcaption>
-            </figure>
-            <div class="item">
-                <!-- Book shelf -->
+        <form method="GET" action="">
+            <input type="search" placeholder="Type a book title to search." id="searchbox">
+            <select>
+                <option value="all" selected="selected">All</option>
+                <option value="art">Art</option>
+                <option value="science">Science</option>
+                <option value="history">History</option>
+                <option value="fiction">Fiction</option>
+                <option value="health">Health</option>
+                <option value="action">Action&Adventure</option>
+            </select>
+            <input type="submit" value="Search" id="searchbtn">
+        </form>
+        <hr />
+        <section id="shelf">
+            <table rules="rows" id="table">
+                <!--TODO: fix CSS-->
+                <tr id="head">
+                    <th colspan="4">Title</th>
+                    <th>Author</th>
+                    <th>Year</th>
+                    <th>Price</th>
+                    <th>Publisher</th>
+                    <th>Category</th>
+                </tr>
+                <tr class="shelf">
+                    <td class="checkbox"><input type="checkbox"></td>
+                    <td class="pic"><img src="./images/01.jpg" class="book"></td>
+                    <td class="title">Book title</td>
+                    <td class="star"><img src="./images/star-16.ico"></td>
+                    <td class="author">Author</td>
+                    <td class="year">2020</td>
+                    <td class="price">59$</td>
+                    <td class="publisher">Press</td>
+                    <td class="category">Art</td>
+                </tr>
+                <tr class="shelf">
+                    <td class="checkbox"><input type="checkbox"></td>
+                    <td class="pic"><img src="./images/02.jpg" class="book"></td>
+                    <td class="title">Book title</td>
+                    <td class="star"><img src="./images/outline-star-16.ico"></td>
+                    <td class="author">Author</td>
+                    <td class="year">1999</td>
+                    <td class="price">29$</td>
+                    <td class="publisher">Press</td>
+                    <td class="category">Art</td>
+                </tr>
 
-
-            </div>
-
-        </div>
-
-        <div class="column" id="result">
-            <!-- Search result -->
-
-            <div class="item">
-                <!-- Single item. -->
-                <p>TEST column</p>
-            </div>
-        </div>
-
-
+            </table>
+        </section>
     </div>
+
 </body>
 
 </html>

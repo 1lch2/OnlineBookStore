@@ -8,19 +8,15 @@ body{
     padding: 0; 
 }
 
-#container{
+div#container{
     display: block;
     margin-top: 5px;
     margin-left: 10px;
     margin-right: 10px;
-    padding: 2px 3px 0 3px;
+    padding: 2px 3px;
     border: 1.5px solid rgb(104, 179, 144);
     border-radius: 7px;
     background-color: rgb(236, 248, 243);
-}
-
-.row{
-    margin: 3px 7px;
 }
 
 hr{
@@ -28,18 +24,29 @@ hr{
     border: 0.5px solid teal;
 }
 
-.center{
-    position: relative;
+#headline{
+    margin-top: 0;
+    text-align: center;
+    background-image: url(../images/background.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    color: white;
+    height: 80px;
+    vertical-align: middle;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 form{
+    margin: 3px 7px;
     height: 40px;
-    padding-left: 100px;
     padding-top: 4px;
 }
 
 #searchbox{
-    width: 50%;
+    width: 260px;
     height: 80%;
     padding-left: 0.5em;
     font-size: 1em;
@@ -81,38 +88,44 @@ select{
 
 }
 
-#headline{
-    margin-top: 0;
-    text-align: center;
-    background-image: url(../images/background.png);
-    background-repeat: no-repeat;
-    background-size: 100%;
+section{
+    padding: 0.75em 0;
+}
+
+table{
+    width: 100%;
+    padding: 0 0.5em;
+}
+
+tr#head{
+    padding: 2px 0;
+    background-color: rgb(96, 156, 96);
+    margin-bottom: 2px;
+    border-top: 2px solid green;
+}
+
+tr#head th{
+    font-size: 1em;
     color: white;
-    height: 80px;
+}
+
+tr.shelf{
+    margin: 5px 10px;
+    padding: 0.5em 0;
+    text-align: center;
+    border-top: 1px solid green;
+}
+
+input[typr='checkbox']{
     vertical-align: middle;
+    margin: 0 auto;
 }
 
-h1{
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+td.pic{
+    height: 120px;
+    padding: 0.25em 0;
 }
-
-.item{
-    height: 180px;
-    width: auto;
-    display: inline-block;
-
-    border: 1.5px solid grey;
-}
-
-.book{
+td.pic img{
     height: 100%;
     width: auto;
-}
-
-figcaption{
-    font-size: 0.8em;
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
 }
