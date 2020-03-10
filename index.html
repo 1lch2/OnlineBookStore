@@ -6,7 +6,7 @@
     <title>A2Z Online Book Store</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <link rel="shortcut icon" href="./images/favicon.png" />
-    <script src="./main.js"></script>
+    <script src="./js/main.js"></script>
 </head>
 
 <body>
@@ -15,7 +15,7 @@
     </div>
 
     <div id="container">
-        <form method="GET" action="">
+        <form method="GET" action="/js/backend.js">
             <input type="search" placeholder="Type a book title to search." id="searchbox">
             <select>
                 <option value="all" selected="selected">All</option>
@@ -25,13 +25,13 @@
                 <option value="fiction">Fiction</option>
                 <option value="health">Health</option>
                 <option value="action">Action&Adventure</option>
+                <option value="scifi">Sci-Fi</option>
             </select>
             <input type="submit" value="Search" id="searchbtn">
         </form>
         <hr />
         <section id="shelf">
             <table rules="rows" id="table">
-                <!--TODO: fix CSS-->
                 <tr id="head">
                     <th colspan="4">Title</th>
                     <th>Author</th>
@@ -41,7 +41,7 @@
                     <th>Category</th>
                 </tr>
                 <tr class="shelf">
-                    <td class="checkbox"><input type="checkbox"></td>
+                    <td class="checkbox"><label><input type="checkbox"></label></td>
                     <td class="pic"><img src="./images/01.jpg" class="book"></td>
                     <td class="title">Book title</td>
                     <td class="star"><img src="./images/star-16.ico"></td>
@@ -52,7 +52,7 @@
                     <td class="category">Art</td>
                 </tr>
                 <tr class="shelf">
-                    <td class="checkbox"><input type="checkbox"></td>
+                    <td class="checkbox"><label><input type="checkbox"></label></td>
                     <td class="pic"><img src="./images/02.jpg" class="book"></td>
                     <td class="title">Book title</td>
                     <td class="star"><img src="./images/outline-star-16.ico"></td>

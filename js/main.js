@@ -36,4 +36,4 @@ function loadElements() {
     }
 }
 
-window.onload = loadElements();
+window.onload(loadElements());
