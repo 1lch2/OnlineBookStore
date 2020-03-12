@@ -25,7 +25,7 @@ function createRow(data){
             var cell = row.insertCell(-1);
             switch(true){
                 case j == 0: // checkbox
-                    cell.innerHTML = "<label><input type='checkbox'></label>";
+                    cell.innerHTML = "<label><input type='checkbox' class='checkforcart'></label>";
                     cell.setAttribute("class", "checkbox");
                     break;
                 case j == 1: // book cover
@@ -152,11 +152,37 @@ function darkMode(){
 
 // Add to cart
 function addCart(){
-    //TODO: add cart
-}
+    var boxes = document.querySelectorAll(".checkforcart");
+    var selectnum = 0;
+    for(var i = 0; i < boxes.length; i++){
+        if(boxes[i].checked){
+            selectnum += 1;
+        }
+    }
+    if(selectnum > 1){
+        alert("You can only choose one at a time!");
+        for(var i = 0; i < boxes.length; i++){
+            boxes[i].checked = false;
+        }    
+    }else if(selectnum == 1){
+        var num = prompt("How many do you want?",1);
+        var cartnum = document.getElementById("cartnum");
+        totalnum = parseInt(cartnum.innerHTML) + parseInt(num); // Add up total number.
+        cartnum.innerHTML = totalnum;
+        for(var i = 0; i < boxes.length; i++){
+            boxes[i].checked = false;
+        }    
+    }else if(selectnum == 0){
+        alert("You have not selected any book.");
+    }
+}        
 
 function resetCart(){
-    //TODO: reset cart
+    var choose = confirm("Do you wish to clear your cart?");
+    if (choose){
+        var cartnum = document.getElementById("cartnum");
+        cartnum.innerHTML = 0;
+    }
 }
 
 // Highlight items based on search.
