@@ -5,7 +5,6 @@
 <head>
     <title>A2Z Online Book Store</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css">
-    <link rel="shortcut icon" href="./images/favicon.png" />
     <script src="./js/main.js"></script>
 </head>
 
@@ -15,9 +14,10 @@
     </div>
 
     <div id="container">
-        <form method="GET" action="/js/backend.js">
+        <form method="GET" action="/js/main.js">
             <input type="search" placeholder="Type a book title to search." id="searchbox">
-            <select>
+            <input type="submit" value="Search" id="searchbtn">
+            <select id="select">
                 <option value="all" selected="selected">All</option>
                 <option value="art">Art</option>
                 <option value="science">Science</option>
@@ -25,9 +25,9 @@
                 <option value="fiction">Fiction</option>
                 <option value="health">Health</option>
                 <option value="action">Action&Adventure</option>
-                <option value="scifi">Sci-Fi</option>
+                <option value="engineer">Engineering</option>
             </select>
-            <input type="submit" value="Search" id="searchbtn">
+            <a id="filter" onclick="filterItem()">Filter</a>
         </form>
         <hr />
         <section id="shelf">
@@ -44,7 +44,10 @@
                     <td class="checkbox"><label><input type="checkbox"></label></td>
                     <td class="pic"><img src="./images/01.jpg" class="book"></td>
                     <td class="title">Book title</td>
-                    <td class="star"><img src="./images/star-16.ico"></td>
+                    <td class="star">
+                        <img src="./images/star-16.ico">
+                        <img src="./images/star-16.ico">
+                    </td>
                     <td class="author">Author</td>
                     <td class="year">2020</td>
                     <td class="price">59$</td>

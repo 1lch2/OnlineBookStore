@@ -88,6 +88,23 @@ select{
 
 }
 
+#filter{
+    margin-left: 1em;
+    background-color: steelblue;
+    border: 1px solid teal;
+    border-radius: 5px;
+    color: white;
+    padding: 0.35em 1.25em;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1em;
+    transition-duration: 0.3s;
+}
+#filter:hover{
+    background-color: white;
+    color: black;
+}
+
 section{
     padding: 0.75em 0 0 0;
 }
@@ -120,6 +137,10 @@ tr.shelf{
     border-top: 1px solid green;
 }
 
+td{
+    text-align: center;
+}
+
 label { /*flex布局让子元素水平垂直居中*/
     display: flex;
     align-items: center;
@@ -127,8 +148,8 @@ label { /*flex布局让子元素水平垂直居中*/
 }
 
 tbody tr td.checkbox{
-    width: 30px;
-    padding: 0 1em;
+    width: 50px;
+    padding: 0 1.5em;
 }
 
 tr td label input[type='checkbox']{
@@ -165,7 +186,7 @@ tr td label input[type=checkbox]:checked::after {
 
 tr td.pic{
     height: 120px;
-    max-width: 100px;
+    width: 10%;
     padding: 0.25em 0;
 }
 td.pic img{
@@ -174,15 +195,15 @@ td.pic img{
 }
 
 tr td.title{
-    width: 25%;
+    width: 30%;
 }
 
 tr td.star{
-    width: 15%;
+    width: 12.5%;
 }
 
 tr td.author{
-    width: 7.5%;
+    width: 5%;
 }
 
 tr td.year{
@@ -190,13 +211,13 @@ tr td.year{
 }
 
 tr td.price{
-    max-width: 5%;
+    width: 5%;
 }
 
 tr td.publisher{
-    max-width: 7.5%;
+    width: 7.5%;
 }
 
 tr td.category{
-    max-width: 7.5%;
+    width: 7.5%;
 }

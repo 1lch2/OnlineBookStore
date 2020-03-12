@@ -8,7 +8,6 @@ const server = http.createServer(function(request, response){
     // Load HTML file.
     var url = request.url.split('?')[0];
     var requestdata = querystring.parse(request.url.split('?')[1]);
-
     console.log('[request url]: ' + url);
 
     if(url === '/'){
@@ -34,7 +33,7 @@ const server = http.createServer(function(request, response){
         });
     }
 
-    // Process GET request.
+    // TODO: Process GET request failed.
     var stringobj = JSON.stringify(requestdata)
     if( stringobj !== '{}'){
         console.log('[GET request]: ' + stringobj);
