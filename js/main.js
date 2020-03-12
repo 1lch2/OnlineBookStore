@@ -98,20 +98,55 @@ function filterItem(){
 
 // Darkmode
 function darkMode(){
+    var body = document.body;
     var darkbox = document.getElementById("dark");
+    var darklabel = document.getElementById("darkswitch");
     var checkstat = darkbox.checked;
     var container = document.getElementById("container");
+    var cartimg = document.getElementById("cart");
+    var inputbox = document.getElementById("searchbox");
+    var cartnum = document.getElementById("cartnum");
+    var select = document.getElementById("select");
+
     if(checkstat){
-        container.style.backgroundColor = "black";
+        // Background color
+        body.style.backgroundColor = "black"
+        container.style.backgroundColor = "#222222";
         container.style.color = "white";
 
-        var rows = document.getElementsByClassName()
+        // Hover
+        // var rows = document.getElementsByClassName()
         //TODO: hover
         //TODO: highlight
 
+        // Input box, select, switch, image and cart number background color
+        cartimg.style.backgroundColor = "grey";
+        inputbox.style.backgroundColor = "#222222";
+        inputbox.style.color = "white"
+        select.style.backgroundColor = "#222222";
+        select.style.color = "white"
+        darklabel.style.backgroundColor = "#156d49"
+        darklabel.style.color = "white"
+        cartnum.style.backgroundColor = "#222222";
+        cartnum.style.color = "white"
+
     }else if(!checkstat){
+        body.style.backgroundColor = "white"
+
         container.style.backgroundColor = "rgb(236, 248, 243)";
         container.style.color = "black";
+
+        cartimg.style.backgroundColor = "white";
+        inputbox.style.backgroundColor = "white";
+        inputbox.style.color = "black"
+        select.style.backgroundColor = "white";
+        select.style.color = "black"
+        darklabel.style.backgroundColor = "#d4e3dd"
+        darklabel.style.color = "black"
+        cartnum.style.backgroundColor = "white";
+        cartnum.style.color = "black"
+
+
     }
 }
 

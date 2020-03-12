@@ -15,8 +15,8 @@ div#container{
     margin-right: 10px;
     padding: 2px 3px;
     border: 1.5px solid rgb(104, 179, 144);
-    border-radius: 7px;
     background-color: rgb(236, 248, 243);
+    transition-duration: 0.3s;
 }
 
 hr{
@@ -114,6 +114,8 @@ img#cart{
     width: auto;
     float: right;
     margin-left: 1em;
+    background-color: white;
+    border-radius: 3px;
 }
 
 a#cartnum{
@@ -133,8 +135,8 @@ form label{
     align-items: center;
     justify-content: center;
     margin-left: 1em;
-    background-color: green;
-    color: white;
+    background-color: #d4e3dd;
+    color: black;
     border-radius: 4px;
     padding: 3px;
 }
