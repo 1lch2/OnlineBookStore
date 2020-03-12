@@ -20,7 +20,7 @@ function createRow(data){
     // Write table row.
     for (var i in data){
         var row = table.insertRow(-1);
-        row.setAttribute("id", "row"+i);
+        row.setAttribute("class", "row"+i);
         for(var j = 0; j < 9; j++){
             var cell = row.insertCell(-1);
             switch(true){
@@ -87,8 +87,6 @@ function loadElements() {
     );
 }
 
-window.onload = loadElements();
-
 // Filter items based on selection.
 function filterItem(){
     var selection = document.getElementById("select");
@@ -98,14 +96,23 @@ function filterItem(){
     }
 }
 
-// Highlight items based on search.
-function highlightItem(){
-    //TODO: highlight
-}
-
 // Darkmode
-function turnoffLight(){
-    //TODO: darkmode checkbox
+function darkMode(){
+    var darkbox = document.getElementById("dark");
+    var checkstat = darkbox.checked;
+    var container = document.getElementById("container");
+    if(checkstat){
+        container.style.backgroundColor = "black";
+        container.style.color = "white";
+
+        var rows = document.getElementsByClassName()
+        //TODO: hover
+        //TODO: highlight
+
+    }else if(!checkstat){
+        container.style.backgroundColor = "rgb(236, 248, 243)";
+        container.style.color = "black";
+    }
 }
 
 // Add to cart
@@ -115,4 +122,18 @@ function addCart(){
 
 function resetCart(){
     //TODO: reset cart
+}
+
+// Highlight items based on search.
+function highlightItem(){
+    //TODO: highlight
+}
+
+function search(){
+    //TODO: serach
+}
+
+// Onload event.
+window.onload = function(){
+    this.loadElements();
 }
