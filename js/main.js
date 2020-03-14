@@ -21,6 +21,7 @@ function createRow(data) {
     for (var i in data) {
         var row = table.insertRow(-1);
         row.setAttribute("id", "shelf" + i);
+        row.setAttribute("class", "shelf");
         for (var j = 0; j < 9; j++) {
             var cell = row.insertCell(-1);
             switch (true) {
@@ -76,24 +77,10 @@ function loadElements() {
     getJsonObject('../data.json',
         function (data) {
             bookList = data; // store the book list into bookList
-            console.log(bookList); // print it into console (developer tools)
-            console.log(bookList[0]); // print the first book object into console 
-
-            // here you can call methods to load or refresh the page 
-            // loadBooks() or refreshPage()
             createRow(bookList);
         },
         function (xhr) { console.error(xhr); }
     );
-}
-
-// Filter items based on selection.
-function filterItem() {
-    var selection = document.getElementById("select");
-    var rows = document.getElementsByTagName("tr").length - 1;
-    for (var i = 0; i < rows; i++) {
-        //TODO: add category into attributes.
-    }
 }
 
 // Darkmode
@@ -101,13 +88,15 @@ function darkMode() {
     var body = document.body;
     var darkbox = document.getElementById("dark");
     var darklabel = document.getElementById("darkswitch");
-    var checkstat = darkbox.checked;
     var container = document.getElementById("container");
     var cartimg = document.getElementById("cart");
     var inputbox = document.getElementById("searchbox");
     var cartnum = document.getElementById("cartnum");
     var select = document.getElementById("select");
+    var headline = document.getElementById("headline");
+    var highlight = document.querySelectorAll(".highlight");
 
+    var checkstat = darkbox.checked; // Dark-mode checkbox status.
     if (checkstat) {
         // Background color
         body.style.backgroundColor = "black"
@@ -125,6 +114,15 @@ function darkMode() {
         cartnum.style.backgroundColor = "#222222";
         cartnum.style.color = "white"
 
+        // Highlighted row.
+        for(var i=0; i < highlight.length; i++){
+            highlight[i].style.backgroundColor = "#636300";
+        }
+
+        // Banner background.
+        headline.style.backgroundImage = "url('../images/background_dark.png')";
+
+    // Turn back to default style when dark mode is disabled.
     } else if (!checkstat) {
         body.style.backgroundColor = "white"
 
@@ -141,7 +139,11 @@ function darkMode() {
         cartnum.style.backgroundColor = "white";
         cartnum.style.color = "black"
 
-        //TODO: change highlight colour when darkmode activated
+        for(var i=0; i < highlight.length; i++){
+            highlight[i].style.backgroundColor = "yellow";
+        }
+
+        headline.style.backgroundImage = "url('../images/background.png')";
     }
 }
 
@@ -172,6 +174,7 @@ function addCart() {
     }
 }
 
+// Reset shopping cart.
 function resetCart() {
     var choose = confirm("Do you wish to clear your cart?");
     if (choose) {
@@ -180,7 +183,7 @@ function resetCart() {
     }
 }
 
-// Highlight items based on search.
+// Highlight items based on search content.
 function highlightItem(indexlist) {
     for (var i = 0; i < indexlist.length; i++) {
         var rowid = "shelf" + indexlist[i];
@@ -194,9 +197,17 @@ function highlightItem(indexlist) {
         }else{
             document.getElementById(rowid).style.backgroundColor = "#636300";
         }
+        document.getElementById(rowid).classList.add("highlight");
     }
 }
 
+function clearHighlight(){
+    var rows = document.querySelectorAll(".highlight");
+    for(var i=0; i < rows.length; i++){
+        rows[i].style.backgroundColor = "";
+        rows[i].classList.remove("highlight");
+    }
+}
 
 // Search title.
 function search() {
@@ -218,6 +229,8 @@ function search() {
 
             if (indexlist.length == 0) {
                 alert("No matched item.");
+                searchtext.value = "";
+                e.preventDefault();
             } else {
                 // Highlight the corresponding row.
                 highlightItem(indexlist);
@@ -229,6 +242,99 @@ function search() {
         }
     }
 }
+
+// Filter items based on selection.
+function filterItem() {
+    var selection = document.getElementById("select").value;
+    var cates = document.querySelectorAll(".category");
+    var rows = document.querySelectorAll(".shelf");
+    const catelist = ["art", "science", "history", "fiction", "action", "health"];
+    var cate_list = []
+
+    // Record current category lists.
+    for(var i = 0; i < cates.length; i++){
+        innercate = cates[i].innerHTML;
+        switch(true){
+            case innercate == "Art":
+                cate_list.push("art");
+                break;
+            case innercate == "Science History":
+                cate_list.push("sci-his");
+                break;
+            case innercate == "Action and Adventure":
+                cate_list.push("action");
+                break;
+            case innercate == "Health":
+                cate_list.push("health");
+                break;
+            case innercate == "Science Fiction":
+                cate_list.push("sci-fi");
+                break;
+        }
+    }
+
+    // Set all rows to hidden display.
+    for(var j=0; j < rows.length; j++){
+        rows[j].style.display = "none";
+    }
+
+    switch(selection){
+        case "all":
+            for(var j=0; j < rows.length; j++){
+                rows[j].style.display = "";
+            }
+            break;
+        case "art":
+            for(var j=0; j < rows.length; j++){
+                if(cate_list[j] == "art"){
+                    rows[j].style.display = "";
+                }
+            }
+            break;
+        case "science":
+            for(var j=0; j < rows.length; j++){
+                if(cate_list[j] == "sci-his" || cate_list[j] == "sci-fi"){
+                    rows[j].style.display = "";
+                }
+            }
+            break;
+        case "history":
+            for(var j=0; j < rows.length; j++){
+                if(cate_list[j] == "sci-his"){
+                    rows[j].style.display = "";
+                }
+            }
+            break;
+        case "fiction":
+            for(var j=0; j < rows.length; j++){
+                if(cate_list[j] == "sci-fi"){
+                    rows[j].style.display = "";
+                }
+            }
+            break;
+        case "health":
+            for(var j=0; j < rows.length; j++){
+                if(cate_list[j] == "health"){
+                    rows[j].style.display = "";
+                }
+            }
+            break;
+        case "action":
+            for(var j=0; j < rows.length; j++){
+                if(cate_list[j] == "action"){
+                    rows[j].style.display = "";
+                }
+            }
+            break;
+        default:
+            for(var j=0; j < rows.length; j++){
+                rows[j].style.display = "";
+            }
+            alert("No item in this category.");
+            break;
+    }
+}
+
 
 //TODO: Hover highlight: waiting to be finished.
 // function darkModeHover() {

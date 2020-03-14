@@ -16,6 +16,7 @@
         <form method="GET" action="" id="form">
             <input type="search" name="searchtext" placeholder="Type a book title to search." id="searchbox">
             <input type="submit" value="Search" id="searchbtn" onclick="search()">
+            <a id="clear" onclick="clearHighlight()" href="#">Clear</a>
             <select id="select">
                 <option value="all" selected="selected">All</option>
                 <option value="art">Art</option>
@@ -26,12 +27,12 @@
                 <option value="action">Action&Adventure</option>
                 <option value="engineer">Engineering</option>
             </select>
-            <a id="filter" onclick="filterItem()">Filter</a>
+            <a id="filter" onclick="filterItem()" href="#">Filter</a>
             <label id="darkswitch">Dark Mode<input type="checkbox" id="dark" onclick="darkMode()"></label>
             <a id="cartnum">0</a>
             <img id="cart" src="./images/shopping_cart.png">
-            <a id="resetcart" onclick="resetCart()">Reset cart</a>
-            <a id="addcart" onclick="addCart()">Add to cart</a>
+            <a id="resetcart" onclick="resetCart()" href="#">Reset cart</a>
+            <a id="addcart" onclick="addCart()" href="#">Add to cart</a>
         </form>
         <hr />
         <section id="shelf">
