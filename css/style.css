@@ -39,6 +39,7 @@ hr{
     justify-content: center;
 }
 
+/* Style for the form row. */
 form{
     margin: 3px 7px;
     height: 40px;
@@ -177,14 +178,16 @@ section{
     padding: 0.75em 0 0 0;
 }
 
+/* Style for table contents. */
 table{
     width: 100%;
     padding: 0 0.5em;
 }
 
-tbody tr:hover{
+/* Disabled until darkmode finishes. */
+/* tbody tr:hover{
     background-color: rgb(211, 238, 214);
-}
+} */
 
 tr#head{
     padding: 2px 0;
@@ -209,7 +212,7 @@ td{
     text-align: center;
 }
 
-td label { /*flex布局让子元素水平垂直居中*/
+td label {
     display: flex;
     align-items: center;
     justify-content: center;
