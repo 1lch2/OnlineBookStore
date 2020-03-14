@@ -1,3 +1,6 @@
+// 
+// This script is no longer in use.
+// 
 const http = require('http');
 const querystring = require('querystring');
 const fs = require('fs');

@@ -335,6 +335,11 @@ function filterItem() {
     }
 }
 
+// Refresh current page.
+function refreshPage(){
+    window.location.reload();
+}
+
 
 //TODO: Hover highlight: waiting to be finished.
 // function darkModeHover() {
@@ -353,6 +358,4 @@ function filterItem() {
 // Onload event.
 window.onload = function () {
     this.loadElements();
-    
-    //TODO: refresh page
 }
