@@ -141,7 +141,7 @@ function darkMode() {
         cartnum.style.backgroundColor = "white";
         cartnum.style.color = "black"
 
-
+        //TODO: change highlight colour when darkmode activated
     }
 }
 
@@ -182,19 +182,30 @@ function resetCart() {
 
 // Highlight items based on search.
 function highlightItem(indexlist) {
-    for (var i =0; i < indexlist.length; i++) {
+    for (var i = 0; i < indexlist.length; i++) {
         var rowid = "shelf" + indexlist[i];
-        document.getElementById(rowid).style.backgroundColor = "yellow";
+
+        // Check dark mode.
+        var darkbox = document.getElementById("dark");
+        var checkstat = darkbox.checked;
+        
+        if(!checkstat){
+            document.getElementById(rowid).style.backgroundColor = "yellow";
+        }else{
+            document.getElementById(rowid).style.backgroundColor = "#636300";
+        }
     }
 }
 
+
+// Search title.
 function search() {
     var form = document.getElementById("form");
 
     form.onsubmit = function (e) {
         var searchtext = document.getElementById("searchbox");
         var titlelist = document.querySelectorAll(".title");
-    
+
         if (searchtext.value.length > 0) { // Check if the input is empty.
             var indexlist = [];
             for (var i = 0; i < titlelist.length; i++) {
@@ -204,9 +215,14 @@ function search() {
                     indexlist.push(i);
                 }
             }
-            // Highlight the corresponding row.
-            highlightItem(indexlist);
-            e.preventDefault();
+
+            if (indexlist.length == 0) {
+                alert("No matched item.");
+            } else {
+                // Highlight the corresponding row.
+                highlightItem(indexlist);
+                e.preventDefault();
+            }
         } else {
             alert("You have not typed anything.");
             e.preventDefault();
@@ -231,4 +247,6 @@ function search() {
 // Onload event.
 window.onload = function () {
     this.loadElements();
+    
+    //TODO: refresh page
 }
