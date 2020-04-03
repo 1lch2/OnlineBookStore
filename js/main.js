@@ -164,8 +164,13 @@ function addCart() {
     } else if (selectnum == 1) {
         var num = prompt("How many do you want?", 1);
         var cartnum = document.getElementById("cartnum");
-        totalnum = parseInt(cartnum.innerHTML) + parseInt(num); // Add up total number.
-        cartnum.innerHTML = totalnum;
+
+        if (num >= 1){
+            totalnum = parseInt(cartnum.innerHTML) + parseInt(num); // Add up total number.
+            cartnum.innerHTML = totalnum;
+        } else{
+            alert("Invalid number !")
+        }
         for (var i = 0; i < boxes.length; i++) {
             boxes[i].checked = false;
         }
